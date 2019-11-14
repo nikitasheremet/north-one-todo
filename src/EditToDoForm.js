@@ -13,7 +13,6 @@ export default function EditToDoForm({ editToDo, toDo, setEditClicked }) {
 
   const checkAndSubmitToDo = () => {
     if (!Object.values(localToDoParams).includes("")) {
-      console.log("In EDIT SUBMIT");
       editToDo(localToDoParams);
       setEditClicked(false);
     } else {

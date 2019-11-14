@@ -6,7 +6,6 @@ import moment from "moment";
 
 export default function ShowToDos(props) {
   let toDos = Object.values(props.toDos);
-  console.log(props.filters);
   return (
     <div className="all-to-dos">
       {toDos
@@ -22,10 +21,10 @@ export default function ShowToDos(props) {
           let now = moment().format("YYYY-MM-DD");
           if (
             moment(now).isAfter(toDo.dueDate) &&
-            toDo.status !== "Late" &&
-            toDo.status !== "Completed"
+            toDo.status !== "LATE" &&
+            toDo.status !== "COMPLETED"
           ) {
-            props.editToDo({ ...toDo, status: "Late" });
+            props.editToDo({ ...toDo, status: "LATE" });
           }
           return (
             <ToDo

@@ -12,21 +12,21 @@ function App() {
       title: "Build ToDo App",
       description: "For NorthOne",
       dueDate: "2019-11-14",
-      status: "Pending"
+      status: "PENDING"
     },
     2: {
       id: 2,
       title: "Start new side project",
       description: "Build personal website",
       dueDate: "2019-12-14",
-      status: "Pending"
+      status: "PENDING"
     },
     3: {
       id: 3,
       title: "Take out trash",
       description: "Dont Forget",
       dueDate: "2019-11-13",
-      status: "Late"
+      status: "LATE"
     }
   });
   const [filters, setFilters] = useState({

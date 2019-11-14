@@ -5,11 +5,12 @@ import moment from "moment";
 
 export default function ToDo({ toDo, deleteToDo, editToDo }) {
   const [editClicked, setEditClicked] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
   let statusColor = "";
-  console.log(moment(new Date(Date.now())).format("YYYY-MM-DD"));
-  if (toDo.status === "Completed") {
+
+  if (toDo.status === "COMPLETED") {
     statusColor = "lightgrey";
-  } else if (toDo.status === "Late") {
+  } else if (toDo.status === "LATE") {
     statusColor = "salmon";
   } else if (
     toDo.dueDate === moment(new Date(Date.now())).format("YYYY-MM-DD")
@@ -27,7 +28,14 @@ export default function ToDo({ toDo, deleteToDo, editToDo }) {
         <div className="checkbox">
           <input
             type="checkbox"
-            onClick={() => editToDo({ ...toDo, status: "Completed" })}
+            checked={isChecked}
+            onClick={() => {
+              setIsChecked(!isChecked);
+              editToDo({
+                ...toDo,
+                status: toDo.status !== "COMPLETED" ? "COMPLETED" : "PENDING"
+              });
+            }}
           ></input>
         </div>
         <div className="info">

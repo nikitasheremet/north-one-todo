@@ -31,9 +31,9 @@ export default function FIlterBy({ setFilters, filters }) {
           onChange={e => setFilters({ ...filters, status: e.target.value })}
         >
           <option value="">All</option>
-          <option value="Completed">Completed</option>
-          <option value="Pending">Pending</option>
-          <option value="Late">Late</option>
+          <option value="COMPLETED">Completed</option>
+          <option value="PENDING">Pending</option>
+          <option value="LATE">Late</option>
         </select>
       </div>
     </div>
