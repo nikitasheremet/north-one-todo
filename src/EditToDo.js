@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import moment from "moment";
 
-export default function AddToDo({ addToDo }) {
+export default function AddToDo({ editToDo, toDo }) {
   const [localToDoParams, setLocalToDoParams] = useState({
-    title: "",
-    description: "",
-    dueDate: moment(new Date(Date.now())).format("YYYY-MM-DD"),
-    status: "Pending"
+    title: toDo.title,
+    description: toDo.edit,
+    dueDate: moment(toDo.dueDate).format("YYYY-MM-DD"),
+    status: toDo.status
   });
 
   const checkAndSubmitToDo = () => {

@@ -7,7 +7,14 @@ export default function ShowToDos(props) {
   return (
     <div>
       {toDos.map(toDo => {
-        return <ToDo key={toDo.id} toDo={toDo} />;
+        return (
+          <ToDo
+            key={toDo.id}
+            toDo={toDo}
+            deleteToDo={props.deleteToDo}
+            editToDo={props.editToDo}
+          />
+        );
       })}
     </div>
   );

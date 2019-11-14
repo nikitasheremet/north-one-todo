@@ -12,12 +12,24 @@ function App() {
     let id = Object.values(toDos).length + 1;
     setToDos({ ...toDos, [id]: { id, title, dueDate, status, description } });
   };
+  const editToDo = ({ title, description, dueDate, status }) => {
+    setToDos({
+      ...toDos,
+      title: title ? title : toDos.title,
+      description: description ? description : toDos.description,
+      dueDate: dueDate ? dueDate : toDos.dueDate,
+      status: status ? status : toDos.status
+    });
+  };
+  const deleteToDo = id => {
+    setToDos({ ...(toDos[id] = undefined) });
+  };
   console.log("TO DOs", toDos);
   return (
     <div className="App">
       Hello World
       <AddToDo addToDo={addToDo} />
-      <ShowToDos toDos={toDos} />
+      <ShowToDos toDos={toDos} deleteToDo={deleteToDo} editToDo={editToDo} />
     </div>
   );
 }
