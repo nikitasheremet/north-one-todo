@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import moment from "moment";
-import "./AddToDo.sass";
+import "./styles/AddToDo.sass";
 
 export default function AddToDo({ addToDo }) {
   const [localToDoParams, setLocalToDoParams] = useState({

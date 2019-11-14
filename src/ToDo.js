@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import EditToDoForm from "./EditToDoForm";
-import "./ToDo.sass";
+import "./styles/ToDo.sass";
 import moment from "moment";
 
 export default function ToDo({ toDo, deleteToDo, editToDo }) {
@@ -27,6 +27,7 @@ export default function ToDo({ toDo, deleteToDo, editToDo }) {
       >
         <div className="checkbox">
           <input
+            readOnly
             type="checkbox"
             checked={isChecked}
             onClick={() => {

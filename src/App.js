@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./App.sass";
+import "./styles/App.sass";
 
 import AddToDo from "./AddToDo";
 import ShowToDos from "./ShowToDos";
@@ -18,14 +18,7 @@ function App() {
       id: 2,
       title: "Start new side project",
       description: "Build personal website",
-      dueDate: "2019-12-14",
-      status: "PENDING"
-    },
-    3: {
-      id: 3,
-      title: "Take out trash",
-      description: "Dont Forget",
-      dueDate: "2019-11-13",
+      dueDate: "2019-08-14",
       status: "LATE"
     }
   });

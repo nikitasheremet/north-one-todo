@@ -1,6 +1,6 @@
 import React from "react";
 import moment from "moment";
-import "./FilterBy.sass";
+import "./styles/FilterBy.sass";
 
 export default function FIlterBy({ setFilters, filters }) {
   return (

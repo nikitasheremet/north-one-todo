@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import moment from "moment";
-import "./EditToDoForm.sass";
+import "./styles/EditToDoForm.sass";
 
 export default function EditToDoForm({ editToDo, toDo, setEditClicked }) {
   const [localToDoParams, setLocalToDoParams] = useState({
@@ -58,9 +58,9 @@ export default function EditToDoForm({ editToDo, toDo, setEditClicked }) {
           }
         ></input>
       </div>
-      <div>
+      <div className="edit-form-buttons">
+        <button onClick={() => setEditClicked(false)}>X</button>
         <button onClick={() => checkAndSubmitToDo()}>Update</button>
-        <button onClick={() => setEditClicked(false)}></button>
       </div>
     </div>
   );

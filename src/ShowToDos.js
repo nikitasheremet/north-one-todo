@@ -1,5 +1,5 @@
 import React from "react";
-import "./ShowToDos.sass";
+import "./styles/ShowToDos.sass";
 
 import ToDo from "./ToDo";
 import moment from "moment";
