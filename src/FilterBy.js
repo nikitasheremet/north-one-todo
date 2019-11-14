@@ -30,7 +30,7 @@ export default function FIlterBy({ setFilters, filters }) {
         <select
           onChange={e => setFilters({ ...filters, status: e.target.value })}
         >
-          <option value="">Status</option>
+          <option value="">All</option>
           <option value="Completed">Completed</option>
           <option value="Pending">Pending</option>
           <option value="Late">Late</option>

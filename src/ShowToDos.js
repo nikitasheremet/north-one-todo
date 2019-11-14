@@ -12,7 +12,6 @@ export default function ShowToDos(props) {
       {toDos
         .filter(
           toDo =>
-            toDo.status !== "Completed" &&
             toDo.title
               .toLowerCase()
               .includes(props.filters.title.toLowerCase()) &&
