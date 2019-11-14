@@ -52,12 +52,11 @@ function App() {
   };
 
   const deleteToDo = id => {
-    console.log(id);
     let cloneToDos = { ...toDos };
     delete cloneToDos[id];
     setToDos({ ...cloneToDos });
   };
-  console.log(toDos);
+
   return (
     <div className="to-do-app">
       <AddToDo addToDo={addToDo} />
