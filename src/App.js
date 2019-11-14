@@ -3,6 +3,7 @@ import "./App.sass";
 
 import AddToDo from "./AddToDo";
 import ShowToDos from "./ShowToDos";
+import FilterBy from "./FilterBy";
 
 function App() {
   const [toDos, setToDos] = useState({
@@ -28,6 +29,11 @@ function App() {
       status: "Late"
     }
   });
+  const [filters, setFilters] = useState({
+    title: "",
+    dueDate: "",
+    status: ""
+  });
 
   const addToDo = ({ title, dueDate, status, description }) => {
     let id = Object.values(toDos).length + 1;
@@ -52,9 +58,15 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="to-do-app">
       <AddToDo addToDo={addToDo} />
-      <ShowToDos toDos={toDos} deleteToDo={deleteToDo} editToDo={editToDo} />
+      <FilterBy setFilters={setFilters} filters={filters} />
+      <ShowToDos
+        toDos={toDos}
+        deleteToDo={deleteToDo}
+        editToDo={editToDo}
+        filters={filters}
+      />
     </div>
   );
 }

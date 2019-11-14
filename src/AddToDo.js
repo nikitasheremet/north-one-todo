@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import moment from "moment";
+import "./AddToDo.sass";
 
 export default function AddToDo({ addToDo }) {
   const [localToDoParams, setLocalToDoParams] = useState({
@@ -18,38 +19,43 @@ export default function AddToDo({ addToDo }) {
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        value={localToDoParams.title}
-        placeholder="Title"
-        onChange={e =>
-          setLocalToDoParams({ ...localToDoParams, title: e.target.value })
-        }
-      ></input>
-      <input
-        type="text"
-        value={localToDoParams.description}
-        placeholder="Description"
-        onChange={e =>
-          setLocalToDoParams({
-            ...localToDoParams,
-            description: e.target.value
-          })
-        }
-      ></input>
-      <input
-        type="date"
-        value={localToDoParams.dueDate}
-        placeholder="Due Date"
-        onChange={e =>
-          setLocalToDoParams({
-            ...localToDoParams,
-            dueDate: moment(new Date(e.target.value)).format("YYYY-MM-DD")
-          })
-        }
-      ></input>
-      <button onClick={() => checkAndSubmitToDo()}>Add To Do</button>
+    <div className="add-to-do">
+      <div>
+        <h3>Add To Do</h3>
+      </div>
+      <div className="inputs">
+        <input
+          type="text"
+          value={localToDoParams.title}
+          placeholder="Title"
+          onChange={e =>
+            setLocalToDoParams({ ...localToDoParams, title: e.target.value })
+          }
+        ></input>
+        <input
+          type="text"
+          value={localToDoParams.description}
+          placeholder="Description"
+          onChange={e =>
+            setLocalToDoParams({
+              ...localToDoParams,
+              description: e.target.value
+            })
+          }
+        ></input>
+        <input
+          type="date"
+          value={localToDoParams.dueDate}
+          placeholder="Due Date"
+          onChange={e =>
+            setLocalToDoParams({
+              ...localToDoParams,
+              dueDate: moment(new Date(e.target.value)).format("YYYY-MM-DD")
+            })
+          }
+        ></input>
+        <button onClick={() => checkAndSubmitToDo()}>Add</button>
+      </div>
     </div>
   );
 }
