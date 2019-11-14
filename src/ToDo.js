@@ -19,6 +19,7 @@ export default function ToDo({ toDo, deleteToDo, editToDo }) {
   } else {
     statusColor = "white";
   }
+
   return (
     <div className="to-do" style={{ backgroundColor: statusColor }}>
       <div

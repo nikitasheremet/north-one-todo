@@ -29,7 +29,12 @@ function App() {
   });
 
   const addToDo = ({ title, dueDate, status, description }) => {
-    let id = Object.values(toDos).length + 1;
+    let id;
+    if (Object.values(toDos).length === 0) {
+      id = 1;
+    } else {
+      id = Number(Object.keys(toDos).slice(-1)[0]) + 1;
+    }
     setToDos({ ...toDos, [id]: { id, title, dueDate, status, description } });
   };
 
@@ -47,9 +52,12 @@ function App() {
   };
 
   const deleteToDo = id => {
-    setToDos({ ...(toDos[id] = undefined) });
+    console.log(id);
+    let cloneToDos = { ...toDos };
+    delete cloneToDos[id];
+    setToDos({ ...cloneToDos });
   };
-
+  console.log(toDos);
   return (
     <div className="to-do-app">
       <AddToDo addToDo={addToDo} />
