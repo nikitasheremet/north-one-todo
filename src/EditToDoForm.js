@@ -1,22 +1,24 @@
 import React, { useState } from "react";
 import moment from "moment";
 
-export default function AddToDo({ editToDo, toDo }) {
+export default function EditToDoForm({ editToDo, toDo, setEditClicked }) {
   const [localToDoParams, setLocalToDoParams] = useState({
+    id: toDo.id,
     title: toDo.title,
-    description: toDo.edit,
+    description: toDo.description,
     dueDate: moment(toDo.dueDate).format("YYYY-MM-DD"),
     status: toDo.status
   });
 
   const checkAndSubmitToDo = () => {
     if (!Object.values(localToDoParams).includes("")) {
-      addToDo(localToDoParams);
+      console.log("In EDIT SUBMIT");
+      editToDo(localToDoParams);
+      setEditClicked(false);
     } else {
       alert("Please Fill In All Fields");
     }
   };
-  console.log(localToDoParams.dueDate);
   return (
     <div>
       <input
@@ -45,11 +47,12 @@ export default function AddToDo({ editToDo, toDo }) {
         onChange={e =>
           setLocalToDoParams({
             ...localToDoParams,
-            dueDate: new Date(e.target.value)
+            dueDate: moment(new Date(e.target.value)).format("YYYY-MM-DD")
           })
         }
       ></input>
-      <button onClick={() => checkAndSubmitToDo()}>Add To Do</button>
+      <button onClick={() => checkAndSubmitToDo()}>Update</button>
+      <button onClick={() => setEditClicked(false)}></button>
     </div>
   );
 }

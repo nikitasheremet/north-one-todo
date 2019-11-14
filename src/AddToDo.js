@@ -16,7 +16,7 @@ export default function AddToDo({ addToDo }) {
       alert("Please Fill In All Fields");
     }
   };
-  console.log(localToDoParams.dueDate);
+
   return (
     <div>
       <input
@@ -45,7 +45,7 @@ export default function AddToDo({ addToDo }) {
         onChange={e =>
           setLocalToDoParams({
             ...localToDoParams,
-            dueDate: new Date(e.target.value)
+            dueDate: moment(new Date(e.target.value)).format("YYYY-MM-DD")
           })
         }
       ></input>
