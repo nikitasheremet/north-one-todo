@@ -7,7 +7,7 @@ export default function AddToDo({ addToDo }) {
     title: "",
     description: "",
     dueDate: moment(new Date(Date.now())).format("YYYY-MM-DD"),
-    status: "Pending"
+    status: "PENDING"
   });
 
   const checkAndSubmitToDo = () => {
